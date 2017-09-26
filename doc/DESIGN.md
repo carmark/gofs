@@ -21,7 +21,7 @@ The metadata service resorts to the coordination service to store file and direc
 
 These two last fields represent the id and the hash stored in the consistency anchor. Metadata tuples are accessed through a set of operations offered by the local metadata service, which are then translated into different calls to the coordination service.
 
-To avoid signal point of failure, GoFS does not use master-slave mode to keep the service up, but uses raft protocol to do the consistency during the multiple nodes.
+To avoid single point of failure, GoFS does not use master-slave mode to keep the service up, but uses raft protocol to do the consistency during the multiple nodes.
 
 Metadata of the file, directory and link is stored in [BoltDB](https://github.com/boltdb/bolt),  and cached the active metadata information in memory.  Since we want to serve the public service, many users may have huge numbers files, we can not cache all data in memory, such as GFS.  The propose cache idea is a dynamic subtree partitioning strategy for distributing meta- data across a cluster of metadata servers introduced in [Dynamic Metadata Management for Petabyte-scale File Systems](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.78.3205&rep=rep1&type=pdf).
 ### Client
