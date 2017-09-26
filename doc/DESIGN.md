@@ -7,7 +7,7 @@ The general architecture  of the GoFS has three main components:
 * the metadata cluster service for managing the metadata and to support synchronization
 * the client that implements most of the GoFS functionality, and corresponds to the file system client mounted at the user machine.
 
-![Alt text](./gofs.png)
+![](./gofs.png)
 
 ## Details
 ### Metadata server
